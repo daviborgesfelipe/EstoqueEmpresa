@@ -5,8 +5,11 @@ namespace EstoqueEmpresa.ConsoleApp
     internal class Program
     {
         static ArrayList listaEquipamentos = new ArrayList();
+        static ArrayList listaChamados = new ArrayList();
         static string[] equipamento = new string[6];
+        static string[] chamado = new string[5];
         static int idEquipamento = 4;
+        static int idChamado = 4;
 
         static void ImprimirMenuInicial()
         {
@@ -48,6 +51,7 @@ namespace EstoqueEmpresa.ConsoleApp
         }
         static void ImprimirMenuChamados()
         {
+            #region MenuChamado
             Console.Clear();
             Console.WriteLine("Menu Chamados");
             Console.WriteLine("Selecione a opcao desejada: ");
@@ -59,6 +63,8 @@ namespace EstoqueEmpresa.ConsoleApp
             Console.WriteLine();
             Console.WriteLine("[0] Voltar menu inicial: ");
             Console.WriteLine();
+            #endregion
+
             Console.Write("Digite a opcao: ");
             int opcaoMenuChamados = Convert.ToInt32(Console.ReadLine());
             switch (opcaoMenuChamados)
@@ -66,7 +72,36 @@ namespace EstoqueEmpresa.ConsoleApp
                 #region RegistrarChamado
                 case 1:
                     {
+                        Console.Clear();
+                        Console.WriteLine("Registro de Chamados");
+                        Console.WriteLine();
+                        Console.WriteLine("Digite o titulo do chamado");
+                        string tituloChamado = Console.ReadLine();
+                        Console.WriteLine();
+                        Console.WriteLine("Digite a descricao do chamado");
+                        string descricaoChamado = Console.ReadLine();
+                        Console.WriteLine();
+                        Console.WriteLine("Digite o nome ou id do equipamento");
+                        string equipamentoChamado = Console.ReadLine();
+                        Console.WriteLine();
+                        Console.WriteLine("Digite a data de abertura do chamado");
+                        string dataAberturaChamado = Console.ReadLine();
 
+
+
+                        chamado[0] = Convert.ToString(idChamado);
+                        chamado[1] = tituloChamado;
+                        chamado[2] = descricaoChamado;
+                        chamado[3] = equipamentoChamado;
+                        chamado[4] = dataAberturaChamado;
+                        listaChamados.Add(chamado);
+                        idChamado++;
+                        Console.WriteLine();
+                        Console.WriteLine("Chamado cadastrado com sucesso!");
+                        Console.WriteLine();
+                        Console.WriteLine("Pressione qualquer tecla para voltar ao menu Chamados...");
+                        Console.ReadKey();
+                        ImprimirMenuChamados();
                     }
                     break;
                 #endregion
@@ -74,7 +109,31 @@ namespace EstoqueEmpresa.ConsoleApp
                 #region ListarChamados
                 case 2:
                     {
+                        Console.Clear();
+                        Console.WriteLine("Lista de Chamados");
+                        Console.WriteLine();
 
+                        if (listaChamados.Count == 0)
+                        {
+                            Console.WriteLine("Não há chamados cadastrados.");
+                        }
+                        else
+                        {
+                            foreach (string[] chamado in listaChamados)
+                            {
+                                Console.WriteLine($"ID: {chamado[0]}");
+                                Console.WriteLine($"Titulo: {chamado[1]}");
+                                Console.WriteLine($"Descricao: {chamado[2]}");
+                                Console.WriteLine($"Equipamento: {chamado[3]}");
+                                Console.WriteLine($"Data abertura: {chamado[4]}");
+                                Console.WriteLine("---------------------------------------------");
+                            }
+                        }
+
+                        Console.WriteLine();
+                        Console.WriteLine("Pressione qualquer tecla para voltar ao menu Chamados...");
+                        Console.ReadKey();
+                        ImprimirMenuChamados();
                     }
                     break;
                 #endregion
@@ -82,7 +141,57 @@ namespace EstoqueEmpresa.ConsoleApp
                 #region EditarChamado
                 case 3:
                     {
+                        Console.Clear();
+                        Console.WriteLine("Edição de Equipamento");
+                        Console.WriteLine();
+                        Console.WriteLine("Digite o ID do equipamento que deseja editar: ");
+                        int idChamadoEditar = Convert.ToInt32(Console.ReadLine());
+                        bool chamadoEncontrado = false;
+                        foreach (string[] chamado in listaChamados)
+                        {
+                            if (Convert.ToInt32(chamado[0]) == idChamadoEditar)
+                            {
+                                Console.WriteLine("Chamado encontrado!");
+                                Console.WriteLine();
+                                Console.WriteLine($"Titulo: {chamado[1]}");
+                                Console.WriteLine($"Descricao: {chamado[2]}");
+                                Console.WriteLine($"Equipamento: {chamado[3]}");
+                                Console.WriteLine($"Data abertura: {chamado[4]}");
+                                Console.WriteLine();
+                                Console.WriteLine("Digite os novos dados do chamado: ");
+                                Console.WriteLine("Digite o novo titulo do chamado: ");
+                                string novoTituloCadastro = Console.ReadLine();
 
+                                Console.WriteLine("Atualize a descricao: ");
+                                string novoDescricaoCadastro = Console.ReadLine();
+
+                                Console.WriteLine("Atualize equipamento: ");
+                                string novoEquipamentoChamado = Console.ReadLine();
+
+                                Console.WriteLine("Atualize a data de abertura: ");
+                                string novaDataAberturaChamado = Console.ReadLine();
+
+                                chamado[1] = novoTituloCadastro;
+                                chamado[2] = novaDataAberturaChamado;
+                                chamado[3] = novoEquipamentoChamado;
+                                chamado[4] = novaDataAberturaChamado;
+
+                                Console.WriteLine();
+                                Console.WriteLine("Chamado editado com sucesso!");
+                                chamadoEncontrado = true;
+                                break;
+                            }
+                        }
+
+                        if (!chamadoEncontrado)
+                        {
+                            Console.WriteLine("Chamado não encontrado.");
+                        }
+
+                        Console.WriteLine();
+                        Console.WriteLine("Pressione qualquer tecla para voltar ao menu de chamados.");
+                        Console.ReadKey();
+                        ImprimirMenuChamados();
                     }
                     break;
                 #endregion
@@ -90,6 +199,39 @@ namespace EstoqueEmpresa.ConsoleApp
                 #region ExcluirChamado
                 case 4:
                     {
+                        Console.Clear();
+                        Console.WriteLine("Exclusão de Chamado");
+                        Console.WriteLine();
+
+                        Console.WriteLine("Digite o ID do chamado que deseja excluir: ");
+                        int idChamadoExcluir = Convert.ToInt32(Console.ReadLine()) - 1;
+
+                        bool chamadoEncontrado = false;
+
+
+                        foreach (string[] chamd in listaChamados)
+                        {
+                            int idFor = Convert.ToInt32(chamd[0]);
+                            if (idFor == idChamadoExcluir)
+                            {
+                                chamadoEncontrado = true;
+                                listaEquipamentos.RemoveAt(idChamadoExcluir);
+                                Console.WriteLine("Chamado excluído com sucesso!");
+                                Console.WriteLine();
+                                break;
+                            }
+                        }
+
+
+                        if (!chamadoEncontrado)
+                        {
+                            Console.WriteLine("Chamado não encontrado!");
+                            Console.WriteLine();
+                        }
+
+                        Console.WriteLine("Pressione qualquer tecla para continuar...");
+                        Console.ReadKey();
+                        ImprimirMenuChamados();
 
                     }
                     break;
@@ -107,6 +249,7 @@ namespace EstoqueEmpresa.ConsoleApp
         }
         static void ImprimirMenuEquipamentos()
         {
+            #region MenuEquipamentos
             Console.Clear();
             Console.WriteLine("Menu Equipamentos");
             Console.WriteLine("Selecione a opcao desejada: ");
@@ -118,10 +261,10 @@ namespace EstoqueEmpresa.ConsoleApp
             Console.WriteLine();
             Console.WriteLine("[0] Voltar menu inicial: ");
             Console.WriteLine();
+            #endregion
             Console.Write("Digite a opcao: ");
             int opcaoMenuEquipamento = Convert.ToInt32(Console.ReadLine());
 
-            string[] chamados = new string[5];
             switch (opcaoMenuEquipamento)
             {
                 #region CadastrarEquipamento
@@ -205,7 +348,6 @@ namespace EstoqueEmpresa.ConsoleApp
                 #region EditarEquipamento
                 case 3:
                     {
-
                         Console.Clear();
                         Console.WriteLine("Edição de Equipamento");
                         Console.WriteLine();
@@ -320,16 +462,20 @@ namespace EstoqueEmpresa.ConsoleApp
                         ImprimirMenuInicial();
                     }
                     break;
-                    #endregion
+                #endregion
             }
         }
         static void Main(string[] args)
         {
             while (true)
             {
-                listaEquipamentos.Add(new string[] { "1", "Notebk", "2000.00", "ABC123", "01/01/2021", "Dell" });
-                listaEquipamentos.Add(new string[] { "2", "Telefo", "1000.00", "XYZ789", "01/01/2021", "Samsung" });
+                listaEquipamentos.Add(new string[] { "1", "Laptop", "2000.00", "ABC123", "01/01/2021", "Dell" });
+                listaEquipamentos.Add(new string[] { "2", "Phone", "1000.00", "XYZ789", "01/01/2021", "Samsung" });
                 listaEquipamentos.Add(new string[] { "3", "Mouse", "50.00", "JKL456", "01/01/2021", "Logitech" });
+
+                listaChamados.Add(new string[] { "1", "Fogo", "Saindo fumaça, fervendo em braza", "Mouse", "31/02/2023"});
+                listaChamados.Add(new string[] { "2", "Descarga Eletrica", "Usuario eletrucutado ao receber ligacoes", "Phone", "14/07/2022" });
+                listaChamados.Add(new string[] { "3", "Vazamento de gas", "Cheiro forte e intoxicacao de usuario ao ligar a maquina", "Laptop", "5/11/2022" });
                 Console.Clear();
                 ImprimirMenuInicial();
             }
