@@ -81,7 +81,7 @@ namespace EstoqueEmpresa.ConsoleApp
                         Console.WriteLine("Digite a descricao do chamado");
                         string descricaoChamado = Console.ReadLine();
                         Console.WriteLine();
-                        Console.WriteLine("Digite o nome ou id do equipamento");
+                        Console.WriteLine("Digite o id do equipamento");
                         string equipamentoChamado = Console.ReadLine();
                         Console.WriteLine();
                         Console.WriteLine("Digite a data de abertura do chamado");
@@ -124,7 +124,15 @@ namespace EstoqueEmpresa.ConsoleApp
                                 Console.WriteLine($"ID: {chamado[0]}");
                                 Console.WriteLine($"Titulo: {chamado[1]}");
                                 Console.WriteLine($"Descricao: {chamado[2]}");
-                                Console.WriteLine($"Equipamento: {chamado[3]}");
+
+                                Console.WriteLine($"Id do equipamento: {chamado[3] }");
+                                foreach (string[] equi in listaEquipamentos)
+                                {
+                                    if (chamado[3] == equi[0])
+                                    {
+                                        Console.WriteLine($"Nome equipamento: {equi[1]}");
+                                    }
+                                }
                                 Console.WriteLine($"Data abertura: {chamado[4]}");
                                 Console.WriteLine("---------------------------------------------");
                             }
@@ -262,6 +270,7 @@ namespace EstoqueEmpresa.ConsoleApp
             Console.WriteLine("[0] Voltar menu inicial: ");
             Console.WriteLine();
             #endregion
+
             Console.Write("Digite a opcao: ");
             int opcaoMenuEquipamento = Convert.ToInt32(Console.ReadLine());
 
@@ -473,9 +482,9 @@ namespace EstoqueEmpresa.ConsoleApp
                 listaEquipamentos.Add(new string[] { "2", "Phone", "1000.00", "XYZ789", "01/01/2021", "Samsung" });
                 listaEquipamentos.Add(new string[] { "3", "Mouse", "50.00", "JKL456", "01/01/2021", "Logitech" });
 
-                listaChamados.Add(new string[] { "1", "Fogo", "Saindo fumaça, fervendo em braza", "Mouse", "31/02/2023"});
-                listaChamados.Add(new string[] { "2", "Descarga Eletrica", "Usuario eletrucutado ao receber ligacoes", "Phone", "14/07/2022" });
-                listaChamados.Add(new string[] { "3", "Vazamento de gas", "Cheiro forte e intoxicacao de usuario ao ligar a maquina", "Laptop", "5/11/2022" });
+                listaChamados.Add(new string[] { "1", "Fogo", "Saindo fumaça, fervendo em braza", "3", "31/02/2023"});
+                listaChamados.Add(new string[] { "2", "Descarga Eletrica", "Usuario eletrucutado ao receber ligacoes", "2", "14/07/2022" });
+                listaChamados.Add(new string[] { "3", "Vazamento de gas", "Cheiro forte e intoxicacao de usuario ao ligar a maquina", "1", "5/11/2022" });
                 Console.Clear();
                 ImprimirMenuInicial();
             }
