@@ -480,15 +480,15 @@ namespace EstoqueEmpresa.ConsoleApp
             while (true)
             {
                 #region EncheListaEquipamentos
-                listaEquipamentos.Add(new string[] { "1", "Laptop", "2000.00", "ABC123", "01/01/2021", "Dell" });
-                listaEquipamentos.Add(new string[] { "2", "Phone", "1000.00", "XYZ789", "01/01/2021", "Samsung" });
-                listaEquipamentos.Add(new string[] { "3", "Mouse", "50.00", "JKL456", "01/01/2021", "Logitech" });
+                listaEquipamentos.Add(new string[] { "1", "Laptop", "2000.00", "ABC123", "01/01/2021", "Apple" });
+                listaEquipamentos.Add(new string[] { "2", "Phone", "1000.00", "XYZ789", "01/01/2021", "BlackBarry" });
+                listaEquipamentos.Add(new string[] { "3", "Mouse", "50.00", "JKL456", "01/01/2021", "ATuring" });
                 #endregion
 
                 #region EncheListaChamados
-                listaChamados.Add(new string[] { "1", "Fogo", "Saindo fumaça, fervendo em braza", "3", "10/11/2021"});
-                listaChamados.Add(new string[] { "2", "Descarga Eletrica", "Usuario eletrucutado ao receber ligacoes", "2", "10/04/2022" });
-                listaChamados.Add(new string[] { "3", "Vazamento de gas", "Cheiro forte e intoxicacao de usuario ao ligar a maquina", "1", "10/08/2022" });
+                listaChamados.Add(new string[] { "1", "Falha", "Apresenta falha na esfera que orienta o cursor", "3", "10/11/2021"});
+                listaChamados.Add(new string[] { "2", "Bota Quebrado", "Antena do aparelho quebrou teclado fisico", "2", "10/04/2022" });
+                listaChamados.Add(new string[] { "3", "Erro SO", "Windowns Vista apresenta intensa lentidao", "1", "10/08/2022" });
                 #endregion
                 Console.Clear();
                 ImprimirMenuInicial();
