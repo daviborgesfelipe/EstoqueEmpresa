@@ -93,9 +93,14 @@ namespace EstoqueEmpresa.ConsoleApp
                         listaChamados.Add(chamado);
                         idChamado++;
                         Console.WriteLine();
+                        Console.ResetColor();
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
                         Console.WriteLine("Chamado cadastrado com sucesso!");
+                        Console.ResetColor();
                         Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Pressione qualquer tecla para voltar ao menu Chamados...");
+                        Console.ResetColor();
                         Console.ReadKey();
                         ImprimirMenuChamados();
                     }
@@ -112,7 +117,9 @@ namespace EstoqueEmpresa.ConsoleApp
 
                         if (listaChamados.Count == 0)
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
                             Console.WriteLine("Não há chamados cadastrados.");
+                            Console.ResetColor();
                         }
                         else
                         {
@@ -141,7 +148,9 @@ namespace EstoqueEmpresa.ConsoleApp
                         }
 
                         Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Pressione qualquer tecla para voltar ao menu Chamados...");
+                        Console.ResetColor();
                         Console.ReadKey();
                         ImprimirMenuChamados();
                     }
@@ -187,7 +196,9 @@ namespace EstoqueEmpresa.ConsoleApp
                                 chamado[4] = novaDataAberturaChamado;
 
                                 Console.WriteLine();
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.WriteLine("Chamado editado com sucesso!");
+                                Console.ResetColor();
                                 chamadoEncontrado = true;
                                 break;
                             }
@@ -195,11 +206,15 @@ namespace EstoqueEmpresa.ConsoleApp
 
                         if (!chamadoEncontrado)
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
                             Console.WriteLine("Chamado não encontrado.");
+                            Console.ResetColor();
                         }
 
                         Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Pressione qualquer tecla para voltar ao menu de chamados.");
+                        Console.ResetColor();
                         Console.ReadKey();
                         ImprimirMenuChamados();
                     }
@@ -226,7 +241,9 @@ namespace EstoqueEmpresa.ConsoleApp
                             {
                                 chamadoEncontrado = true;
                                 listaEquipamentos.RemoveAt(idChamadoExcluir);
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.WriteLine("Chamado excluído com sucesso!");
+                                Console.ResetColor();
                                 Console.WriteLine();
                                 break;
                             }
@@ -235,11 +252,14 @@ namespace EstoqueEmpresa.ConsoleApp
 
                         if (!chamadoEncontrado)
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
                             Console.WriteLine("Chamado não encontrado!");
+                            Console.ResetColor();
                             Console.WriteLine();
                         }
-
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Pressione qualquer tecla para continuar...");
+                        Console.ResetColor();
                         Console.ReadKey();
                         ImprimirMenuChamados();
 
@@ -286,8 +306,12 @@ namespace EstoqueEmpresa.ConsoleApp
                         string nomeEquipamento = Console.ReadLine();
                         while (nomeEquipamento.Length > 6)
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
                             Console.WriteLine("Nome maior que 6 caracteres.");
+                            Console.ResetColor();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
                             Console.WriteLine("Digite o nome novamente: ");
+                            Console.ResetColor();
                             nomeEquipamento = Console.ReadLine();
                         }
                         Console.WriteLine();
@@ -312,9 +336,13 @@ namespace EstoqueEmpresa.ConsoleApp
                         listaEquipamentos.Add(equipamento);
                         idEquipamento++;
                         Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
                         Console.WriteLine("Equipamento cadastrado com sucesso!");
+                        Console.ResetColor();
                         Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Pressione qualquer tecla para voltar ao menu Equipamentos...");
+                        Console.ResetColor();
                         Console.ReadKey();
                         ImprimirMenuEquipamentos();
                     }
@@ -331,7 +359,9 @@ namespace EstoqueEmpresa.ConsoleApp
 
                         if (listaEquipamentos.Count == 0)
                         {
+                            Console.ForegroundColor= ConsoleColor.DarkRed;
                             Console.WriteLine("Não há equipamentos cadastrados.");
+                            Console.ResetColor();
                         }
                         else
                         {
@@ -348,7 +378,9 @@ namespace EstoqueEmpresa.ConsoleApp
                         }
 
                         Console.WriteLine();
+                        Console.ForegroundColor= ConsoleColor.DarkYellow;
                         Console.WriteLine("Pressione qualquer tecla para voltar ao menu Equipamentos...");
+                        Console.ResetColor();
                         Console.ReadKey();
                         ImprimirMenuEquipamentos();
                     }
@@ -368,7 +400,9 @@ namespace EstoqueEmpresa.ConsoleApp
                         {
                             if (Convert.ToInt32(equipamento[0]) == idEquipamentoEditar)
                             {
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.WriteLine("Equipamento encontrado!");
+                                Console.ResetColor();
                                 Console.WriteLine();
                                 Console.WriteLine($"ID: {equipamento[0]}");
                                 Console.WriteLine($"Nome: {equipamento[1]}");
@@ -377,7 +411,10 @@ namespace EstoqueEmpresa.ConsoleApp
                                 Console.WriteLine($"Data de fabricação: {equipamento[4]}");
                                 Console.WriteLine($"Nome do fabricante: {equipamento[5]}");
                                 Console.WriteLine();
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.WriteLine("Digite os novos dados do equipamento: ");
+                                Console.ResetColor();
+                                Console.WriteLine();
                                 Console.WriteLine("Digite o novo nome do equipamento com no máximo 6 caracteres: ");
                                 string novoNomeEquipamento = Console.ReadLine();
                                 while (novoNomeEquipamento.Length > 6)
@@ -406,7 +443,9 @@ namespace EstoqueEmpresa.ConsoleApp
                                 equipamento[5] = novoNomeFabricante;
 
                                 Console.WriteLine();
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.WriteLine("Equipamento editado com sucesso!");
+                                Console.ResetColor();
                                 equipamentoEncontrado = true;
                                 break;
                             }
@@ -414,11 +453,15 @@ namespace EstoqueEmpresa.ConsoleApp
 
                         if (!equipamentoEncontrado)
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
                             Console.WriteLine("Equipamento não encontrado.");
+                            Console.ResetColor();
                         }
 
                         Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Pressione qualquer tecla para voltar ao menu de equipamentos.");
+                        Console.ResetColor();
                         Console.ReadKey();
                         ImprimirMenuEquipamentos();
                     }
@@ -445,7 +488,9 @@ namespace EstoqueEmpresa.ConsoleApp
                             {
                                 equipamentoEncontrado = true;
                                 listaEquipamentos.RemoveAt(idEquipamentoExcluir);
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.WriteLine("Equipamento excluído com sucesso!");
+                                Console.ResetColor();
                                 Console.WriteLine();
                                 break;
                             }
@@ -454,11 +499,14 @@ namespace EstoqueEmpresa.ConsoleApp
 
                         if (!equipamentoEncontrado)
                         {
+                            Console.ForegroundColor= ConsoleColor.DarkRed;
                             Console.WriteLine("Equipamento não encontrado!");
+                            Console.ResetColor();  
                             Console.WriteLine();
                         }
-                        
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Pressione qualquer tecla para continuar...");
+                        Console.ResetColor();
                         Console.ReadKey();
                         ImprimirMenuEquipamentos();
                     }
