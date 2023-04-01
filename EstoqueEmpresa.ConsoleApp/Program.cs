@@ -10,10 +10,8 @@ namespace EstoqueEmpresa.ConsoleApp
         static string[] chamado = new string[5];
         static int idEquipamento = 4;
         static int idChamado = 4;
-
         static void ImprimirMenuInicial()
         {
-
             Console.WriteLine("Menu Inicial");
             Console.WriteLine("Selecione a opcao desejada: ");
             Console.WriteLine();
@@ -24,7 +22,6 @@ namespace EstoqueEmpresa.ConsoleApp
             Console.WriteLine();
             Console.Write("Digite a opcao: ");
             int opcaoMenuInicial = Convert.ToInt32(Console.ReadLine());
-
             switch (opcaoMenuInicial)
             {
                 #region MenuEquipamentos
@@ -64,7 +61,6 @@ namespace EstoqueEmpresa.ConsoleApp
             Console.WriteLine("[0] Voltar menu inicial: ");
             Console.WriteLine();
             #endregion
-
             Console.Write("Digite a opcao: ");
             int opcaoMenuChamados = Convert.ToInt32(Console.ReadLine());
             switch (opcaoMenuChamados)
@@ -130,13 +126,12 @@ namespace EstoqueEmpresa.ConsoleApp
                                 Console.WriteLine($"ID: {chamado[0]}");
                                 Console.WriteLine($"Titulo: {chamado[1]}");
                                 Console.WriteLine($"Descricao: {chamado[2]}");
-
                                 Console.WriteLine($"Id do equipamento: {chamado[3] }");
                                 foreach (string[] equi in listaEquipamentos)
                                 {
                                     if (chamado[3] == equi[0])
                                     {
-                                        Console.WriteLine($"Nome equipamento: {equi[1]}");
+                                        Console.WriteLine($"Nome do equipamento: {equi[1]}");
                                     }
                                 }
                                 Console.WriteLine($"Data abertura: {dataAberturaFormatada}");
@@ -277,10 +272,8 @@ namespace EstoqueEmpresa.ConsoleApp
             Console.WriteLine("[0] Voltar menu inicial: ");
             Console.WriteLine();
             #endregion
-
             Console.Write("Digite a opcao: ");
             int opcaoMenuEquipamento = Convert.ToInt32(Console.ReadLine());
-
             switch (opcaoMenuEquipamento)
             {
                 #region CadastrarEquipamento
@@ -486,13 +479,17 @@ namespace EstoqueEmpresa.ConsoleApp
         {
             while (true)
             {
+                #region EncheListaEquipamentos
                 listaEquipamentos.Add(new string[] { "1", "Laptop", "2000.00", "ABC123", "01/01/2021", "Dell" });
                 listaEquipamentos.Add(new string[] { "2", "Phone", "1000.00", "XYZ789", "01/01/2021", "Samsung" });
                 listaEquipamentos.Add(new string[] { "3", "Mouse", "50.00", "JKL456", "01/01/2021", "Logitech" });
+                #endregion
 
+                #region EncheListaChamados
                 listaChamados.Add(new string[] { "1", "Fogo", "Saindo fumaça, fervendo em braza", "3", "10/11/2021"});
                 listaChamados.Add(new string[] { "2", "Descarga Eletrica", "Usuario eletrucutado ao receber ligacoes", "2", "10/04/2022" });
                 listaChamados.Add(new string[] { "3", "Vazamento de gas", "Cheiro forte e intoxicacao de usuario ao ligar a maquina", "1", "10/08/2022" });
+                #endregion
                 Console.Clear();
                 ImprimirMenuInicial();
             }
