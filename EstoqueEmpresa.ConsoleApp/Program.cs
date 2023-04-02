@@ -18,7 +18,9 @@ namespace EstoqueEmpresa.ConsoleApp
             Console.WriteLine("[1] Equipamentos: ");
             Console.WriteLine("[2] Chamados: ");
             Console.WriteLine();
-            Console.WriteLine("[0] Sair: ");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("[Ctrl + 'C'] Sair");
+            Console.ResetColor();
             Console.WriteLine();
             Console.Write("Digite a opcao: ");
             int opcaoMenuInicial = Convert.ToInt32(Console.ReadLine());
