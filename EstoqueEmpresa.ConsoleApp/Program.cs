@@ -45,7 +45,7 @@ namespace EstoqueEmpresa.ConsoleApp
                 #region Sair da aplicacao
                 case 0:
                     break;
-                    #endregion
+                #endregion
             }
         }
         static void ImprimirMenuChamados()
@@ -116,7 +116,7 @@ namespace EstoqueEmpresa.ConsoleApp
                         Console.WriteLine("Lista de Chamados");
                         Console.WriteLine();
                         Console.WriteLine("---------------------------------------------");
-
+                        Console.WriteLine();
                         if (listaChamados.Count == 0)
                         {
                             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -164,6 +164,26 @@ namespace EstoqueEmpresa.ConsoleApp
                     {
                         Console.Clear();
                         Console.WriteLine("Edição de Equipamento");
+                        Console.WriteLine();
+                        int[] colLarguraCabecalho = { 7, 16, 60, 7, 14, 16 };
+                        int[] colLarguraTabela = { 6, 15, 59, 6, 13, 15 };
+                        string[] cabecalho = { "|ID", "|Titulo", "|Descricao", "|IdEq", "|Abertura" };
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        for (int i = 0; i < cabecalho.Length; i++)
+                        {
+                            Console.Write(cabecalho[i].PadRight(colLarguraCabecalho[i]));
+                        }
+                        Console.ResetColor();
+                        Console.WriteLine();
+                        for (int i = 0; i < listaChamados.Count; i++)
+                        {
+                            string[] chamado = (string[])listaChamados[i];
+                            for (int j = 0; j < chamado.Length; j++)
+                            {
+                                Console.Write($"|{chamado[j].PadRight(colLarguraTabela[j])}");
+                            }
+                            Console.WriteLine();
+                        }
                         Console.WriteLine();
                         Console.WriteLine("Digite o ID do equipamento que deseja editar: ");
                         int idChamadoEditar = Convert.ToInt32(Console.ReadLine());
@@ -390,13 +410,36 @@ namespace EstoqueEmpresa.ConsoleApp
                 #endregion
 
                 #region EditarEquipamento
+                    //mostrar lista de equipamentos antes de perguntar qual equipamento deseja editar
                 case 3:
                     {
                         Console.Clear();
                         Console.WriteLine("Edição de Equipamento");
                         Console.WriteLine();
+                        int[] colLarguraCabecalho = { 7, 16, 11, 16, 14, 16};
+                        int[] colLarguraTabela = { 6, 15, 10, 15, 13, 15};
+                        string[] cabecalho = { "|ID", "|Nome", "|Preço", "|NumSerie", "|Fabricação", "|Fabricante"};
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        for (int i = 0; i < cabecalho.Length; i++)
+                        {
+                            Console.Write(cabecalho[i].PadRight(colLarguraCabecalho[i]));
+                        }
+                        Console.ResetColor();
+                        Console.WriteLine();
+                        for (int i = 0; i < listaEquipamentos.Count; i++)
+                        {
+                            string[] equipamento = (string[])listaEquipamentos[i];
+                            for (int j = 0; j < equipamento.Length; j++)
+                            {
+                                Console.Write($"|{equipamento[j].PadRight(colLarguraTabela[j])}");
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine();
                         Console.WriteLine("Digite o ID do equipamento que deseja editar: ");
                         int idEquipamentoEditar = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine($"Equipamento selecionado com o ID {idEquipamentoEditar} para ediçao: ");
+
                         bool equipamentoEncontrado = false;
                         foreach (string[] equipamento in listaEquipamentos)
                         {
@@ -525,6 +568,7 @@ namespace EstoqueEmpresa.ConsoleApp
                 #endregion
             }
         }
+
         static void Main(string[] args)
         {
             while (true)
@@ -537,7 +581,7 @@ namespace EstoqueEmpresa.ConsoleApp
 
                 #region EncheListaChamados
                 listaChamados.Add(new string[] { "1", "Falha", "Apresenta falha na esfera que orienta o cursor", "3", "10/11/2021"});
-                listaChamados.Add(new string[] { "2", "Bota Quebrado", "Antena do aparelho quebrou teclado fisico", "2", "10/04/2022" });
+                listaChamados.Add(new string[] { "2", "Botao Quebrado", "Antena do aparelho quebrou teclado fisico", "2", "10/04/2022" });
                 listaChamados.Add(new string[] { "3", "Erro SO", "Windowns Vista apresenta intensa lentidao", "1", "10/08/2022" });
                 #endregion
                 Console.Clear();
