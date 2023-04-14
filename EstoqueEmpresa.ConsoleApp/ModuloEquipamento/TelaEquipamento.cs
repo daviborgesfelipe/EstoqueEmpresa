@@ -107,7 +107,7 @@ namespace EstoqueEmpresa.ConsoleApp.ModuloEquipamento
             bool idInvalido;
             do
             {
-                Console.WriteLine("Digite o ID do equipamento que desejado: ");
+                Console.WriteLine("Digite o ID do equipamento desejado: ");
                 idEquipamentoEditar = Convert.ToInt32(Console.ReadLine());
                 idInvalido = RepositorioEquipamento.ObterPorId(idEquipamentoEditar) == null;
                 if (idInvalido)

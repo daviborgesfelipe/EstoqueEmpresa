@@ -6,31 +6,28 @@ namespace EstoqueEmpresa.ConsoleApp
 {
     public class Program
     {
+        static int id;
         static void Main(string[] args)
         {
             while (true)
             {
                 #region EncheListaEquipamentos
-                listaEquipamentos.Add(new string[] { "1", "Laptop", "2000.00", "ABC123", "01/01/2021", "Apple" });
-                listaEquipamentos.Add(new string[] { "2", "Phone", "1000.00", "XYZ789", "01/01/2021", "BlackBarry" });
-                listaEquipamentos.Add(new string[] { "3", "Mouse", "50.00", "JKL456", "01/01/2021", "ATuring" });
+                //listaEquipamentos.Add(new string[] { "1", "Laptop", "2000.00", "ABC123", "01/01/2021", "Apple" });
+                //listaEquipamentos.Add(new string[] { "2", "Phone", "1000.00", "XYZ789", "01/01/2021", "BlackBarry" });
+                //listaEquipamentos.Add(new string[] { "3", "Mouse", "50.00", "JKL456", "01/01/2021", "ATuring" });
+                RepositorioEquipamento.CadastrarAlgunsEquipamentosAutomaticamente();
                 #endregion
 
                 #region EncheListaChamados
-                listaChamados.Add(new string[] { "1", "Falha", "Apresenta falha na esfera que orienta o cursor", "3", "10/11/2021" });
-                listaChamados.Add(new string[] { "2", "Botao Quebrado", "Antena do aparelho quebrou teclado fisico", "2", "10/04/2022" });
-                listaChamados.Add(new string[] { "3", "Erro SO", "Windowns Vista apresenta intensa lentidao", "1", "10/08/2022" });
+                //listaChamados.Add(new string[] { "1", "Falha", "Apresenta falha na esfera que orienta o cursor", "3", "10/11/2021" });
+                //listaChamados.Add(new string[] { "2", "Botao Quebrado", "Antena do aparelho quebrou teclado fisico", "2", "10/04/2022" });
+                //listaChamados.Add(new string[] { "3", "Erro SO", "Windowns Vista apresenta intensa lentidao", "1", "10/08/2022" });
+                RepositorioChamado.CadastrarAlgunsChamadosAutomaticamente();
                 #endregion
                 Console.Clear();
                 ImprimirMenuInicial();
             }
         }
-        static ArrayList listaChamados = new ArrayList();
-        static string[] equipamento = new string[6];
-        static string[] chamado = new string[5];
-        static int idEquipamento = 4;
-        static int idChamado = 4;
-        static int id;
         public static void ImprimirCabecalho(string titulo, string subtitulo)
         {
             Console.Clear();

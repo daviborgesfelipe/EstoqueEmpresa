@@ -27,7 +27,6 @@ namespace EstoqueEmpresa.ConsoleApp.ModuloEquipamento
         public static void Excluir(int id)
         {
             Equipamento equipamento = ObterPorId(id);
-
             _listaEquipamentos.Remove(equipamento);
         }
         public static ArrayList ObterLista()
@@ -49,6 +48,17 @@ namespace EstoqueEmpresa.ConsoleApp.ModuloEquipamento
 
             return equipamento;
         }
-
+        public static void CadastrarAlgunsEquipamentosAutomaticamente()
+        {
+            int Id = id;
+            string nome = "Impressora";
+            double preco = 1500;
+            string numeroSerie = "123-abc";
+            string dataFabricacao = "12/12/2022";
+            string fabricante = "Lexmark";
+            Equipamento equipamento = new Equipamento(Id, nome, preco, numeroSerie, dataFabricacao, fabricante);
+            _listaEquipamentos.Add(equipamento);
+            Program.IncrementarId();
+        }
     }
 }
